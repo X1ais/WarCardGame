@@ -1,9 +1,9 @@
 package war;
 
 public class App {
+	private static Deck deck;
 	private static Player playerOne;
 	private static Player playerTwo;
-	private static Deck deck;
 	
 	
 	
@@ -15,9 +15,10 @@ public class App {
 		deck.shuffle();
 		
 		dealCards();
-		
 	}
 
+	
+	
 	private static void dealCards() {
 		for (int i = 0; i < 52; i++) {
 			if (i % 2 == 0) {
