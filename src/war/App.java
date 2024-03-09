@@ -15,6 +15,12 @@ public class App {
 		deck.shuffle();
 		
 		dealCards();
+		
+		for (int i = 0; i < 26; i++) {
+			flip();
+		}
+		
+		printWinner();
 	}
 
 	
@@ -27,6 +33,34 @@ public class App {
 				playerTwo.getHand().add(deck.draw());
 			}
 		}		
+	}
+	
+	
+	private static void flip() {
+		int playerOneCard = playerOne.getHand().remove(0).getValue();
+		int playerTwoCard = playerTwo.getHand().remove(0).getValue();
+		
+		if (playerOneCard > playerTwoCard) {
+			playerOne.incrementScore();
+		} else if (playerOneCard < playerTwoCard) {
+			playerTwo.incrementScore();
+		}
+	}
+	
+	
+	private static void printWinner() {
+		String winnerMessage;
+		if (playerOne.getScore() > playerTwo.getScore()) {
+			winnerMessage = playerOne.getName() + " wins!";
+		} else if (playerOne.getScore() < playerTwo.getScore()) {
+			winnerMessage = playerTwo.getName() + " wins!";
+		} else {
+			winnerMessage = "Draw!";
+		}
+		
+		System.out.println(playerOne.getName() + "     " + playerTwo.getName());
+		System.out.println("    " + playerOne.getScore() + "             " + playerTwo.getScore());
+		System.out.println("\n" + winnerMessage);
 	}
 
 }
