@@ -1,16 +1,27 @@
 package war;
 
+import java.awt.Image;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 public class Card {
 	private int value;
 	private String rank;
 	private String suit;
-	
+	private Image cardImg;
 	
 	
 	public Card(String rank, String suit) {
 		this.rank = rank;
 		this.suit = suit;
 		value = getValue(rank);
+		
+		try {
+			cardImg = ImageIO.read(getClass().getResource("/cards/" + rank + "-" + suit + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 
@@ -27,22 +38,16 @@ public class Card {
 
 
 
-	public void setName(String suit) {
-		this.suit = suit;
-	}
-
-
-
 	public String getRank() {
 		return rank;
 	}
-
-
-
-	public void setRank(String rank) {
-		this.rank = rank;
-	}
 	
+	
+
+	public Image getCardImg() {
+		return cardImg;
+	}
+
 	
 	
 	public void describe() {

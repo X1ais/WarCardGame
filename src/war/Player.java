@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Player {
 	private List<Card> hand = new ArrayList<>();
-	private int score;
+	private List<Card> discard = new ArrayList<>();
+	private int score = 0;
 	private String name;
 	
 	
@@ -74,5 +75,17 @@ public class Player {
 	
 	public void incrementScore() {
 		score++;
+	}
+
+
+
+	public List<Card> getDiscard() {
+		return discard;
+	}
+
+
+
+	public void setDiscard(List<Card> discard) {
+		this.discard = discard;
 	}
 }

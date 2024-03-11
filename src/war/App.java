@@ -37,8 +37,8 @@ public class App {
 	
 	
 	private static void flip() {
-		int playerOneCard = playerOne.getHand().remove(0).getValue();
-		int playerTwoCard = playerTwo.getHand().remove(0).getValue();
+		int playerOneCard = playerOne.flip().getValue();
+		int playerTwoCard = playerTwo.flip().getValue();
 		
 		if (playerOneCard > playerTwoCard) {
 			playerOne.incrementScore();
