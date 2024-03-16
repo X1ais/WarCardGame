@@ -15,7 +15,7 @@ public class Card {
 	public Card(String rank, String suit) {
 		this.rank = rank;
 		this.suit = suit;
-		value = getValue(rank);
+		value = setValue(rank);
 		
 		try {
 			cardImg = ImageIO.read(getClass().getResource("/cards/" + rank + "-" + suit + ".png"));
@@ -56,7 +56,7 @@ public class Card {
 	
 	
 	
-	private int getValue(String rank) { // Uses a switch statement to check against the valid ranks a card may have and assigns a value associated with that rank.
+	private int setValue(String rank) { // Uses a switch statement to check against the valid ranks a card may have and assigns a value associated with that rank.
 		switch (rank) {
 		case "two":
 			return 2;
